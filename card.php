@@ -216,10 +216,10 @@ foreach ($cartItems as $item) {
                 Ready for checkout
             </div>
         </div>
-    
+        <a href="menu.php" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Back to Menu
     </div>
-    <a href="menu.php" class="btn btn-outline-secondary">
-    <i class="bi bi-arrow-left"></i> Back to Menu
+    
     <footer>
         <div class="social-icons">
             <a href="#" class="social-icon facebook">
