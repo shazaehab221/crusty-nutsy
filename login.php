@@ -18,29 +18,42 @@ $message = ''; // To store feedback
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sign Up
-    if (isset($_POST['signup'])) {
-        $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-        $name = htmlspecialchars(trim($_POST['name'] ?? ''));
-        $password = htmlspecialchars(trim($_POST['password'] ?? ''));
-        $confirmPassword = htmlspecialchars(trim($_POST['confirm_password'] ?? ''));
+    // Sign Up
+if (isset($_POST['signup'])) {
+  $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+  $name = htmlspecialchars(trim($_POST['name'] ?? ''));
+  $password = htmlspecialchars(trim($_POST['password'] ?? ''));
+  $confirmPassword = htmlspecialchars(trim($_POST['confirm_password'] ?? ''));
 
-        if (empty($email) || empty($password) || empty($confirmPassword) || !filter_var($email, FILTER_VALIDATE_EMAIL) || $password !== $confirmPassword) {
-            $message = "Please fill in all fields correctly, and make sure the passwords match.";
-        } else {
-            try {
-                $sql = "INSERT INTO users (email, password, name) VALUES (:email, :password, :name)";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([
-                    ':password' => password_hash($password, PASSWORD_DEFAULT),
-                    ':name' => $name,
-                    ':email' => $email
-                ]);
-                $message = "You have successfully signed up!";
-            } catch (PDOException $e) {
-                $message = "Error: " . $e->getMessage();
-            }
-        }
-    }
+  if (empty($email) || empty($password) || empty($confirmPassword) || !filter_var($email, FILTER_VALIDATE_EMAIL) || $password !== $confirmPassword) {
+      $message = "Please fill in all fields correctly, and make sure the passwords match.";
+  } else {
+      try {
+          // Check if email already exists
+          $checkSql = "SELECT COUNT(*) FROM users WHERE email = :email";
+          $checkStmt = $pdo->prepare($checkSql);
+          $checkStmt->execute([':email' => $email]);
+          $emailExists = $checkStmt->fetchColumn();
+
+          if ($emailExists) {
+              $message = "This email is already registered. Please use a different one.";
+          } else {
+              // Insert new user
+              $sql = "INSERT INTO users (email, password, name) VALUES (:email, :password, :name)";
+              $stmt = $pdo->prepare($sql);
+              $stmt->execute([
+                  ':password' => password_hash($password, PASSWORD_DEFAULT),
+                  ':name' => $name,
+                  ':email' => $email
+              ]);
+              $message = "You have successfully signed up!";
+          }
+      } catch (PDOException $e) {
+          $message = "Error: " . $e->getMessage();
+      }
+  }
+}
+
 
     // Login
     if (isset($_POST['login'])) {
