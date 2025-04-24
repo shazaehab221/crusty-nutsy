@@ -44,31 +44,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Login
     if (isset($_POST['login'])) {
-        $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-        $password = htmlspecialchars(trim($_POST['password'] ?? ''));
-
-        if (empty($email) || empty($password)) {
-            $message = "Please fill in both fields.";
-        } else {
-            try {
-                $sql = "SELECT * FROM users WHERE email = :email";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([':email' => $email]);
-                $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($user && password_verify($password, $user['password'])) {
-                    $message = "Welcome back, " . htmlspecialchars($user['name']) . "!";
-                    // Here you can start a session if needed
-                } else {
-                    $message = "Invalid credentials. Please try again.";
-                }
-            } catch (PDOException $e) {
-                $message = "Error: " . $e->getMessage();
-            }
-        }
-    }
+      $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+      $password = htmlspecialchars(trim($_POST['password'] ?? ''));
+  
+      if (empty($email) || empty($password)) {
+          $message = "Please fill in both fields.";
+      } else {
+          try {
+              $sql = "SELECT * FROM users WHERE email = :email";
+              $stmt = $pdo->prepare($sql);
+              $stmt->execute([':email' => $email]);
+              $user = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+              if ($user && password_verify($password, $user['password'])) {
+                  // Start session if needed
+                  session_start();
+                  $_SESSION['user'] = $user;
+  
+                  // Redirect to test1.php
+                  header("Location: test1.php");
+                  exit();
+              } else {
+                  $message = "Invalid credentials. Please try again.";
+              }
+          } catch (PDOException $e) {
+              $message = "Error: " . $e->getMessage();
+          }
+      }
+  }
 }
-
 ?>
 <!DOCTYPE html>
 <html>
