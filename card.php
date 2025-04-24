@@ -22,7 +22,6 @@ if (isset($_POST['delete_item']) && isset($_POST['item_id'])) {
     header("Location: ".$_SERVER['PHP_SELF']);
     exit();
 }
-
 // Fetch cart items
 $stmt = $pdo->query("SELECT * FROM cart");
 $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
