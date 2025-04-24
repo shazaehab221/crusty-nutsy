@@ -67,7 +67,7 @@ foreach ($cartItems as $item) {
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
+            background-color:rgb(236, 205, 205);
             
         }
         
