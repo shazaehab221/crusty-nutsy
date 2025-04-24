@@ -9,7 +9,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 50px;
-    background-color: #4a0638;
+    background-color: #4a0625;
     position: sticky; /* Makes the navbar sticky */         
     top: 0;
     z-index: 1000; /* Essential for sticky to work */
