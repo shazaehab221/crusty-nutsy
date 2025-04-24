@@ -218,6 +218,8 @@ foreach ($cartItems as $item) {
         </div>
     
     </div>
+    <a href="menu.php" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left"></i> Back to Menu
     <footer>
         <div class="social-icons">
             <a href="#" class="social-icon facebook">
@@ -237,6 +239,7 @@ foreach ($cartItems as $item) {
             </a>
         </div>
         </footer>
+
     <!-- Bootstrap Icons for trash icon -->
     <script>
 function placeOrder() {
