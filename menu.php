@@ -100,10 +100,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                            <input type="hidden" name="name" value="Classic Butter Croissant">
                             <input type="hidden" name="price" value="70">
                             <div class="quantity-wrapper">
-    <button type="button" class="qty-btn" onclick="changeQuantity(-1)">−</button>
-    <input type="number" name="quantity" value="1" min="1" class="quantity-input" id="quantityInput">
-    <button type="button" class="qty-btn" onclick="changeQuantity(1)">+</button>
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
 </div>
+
                             <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
@@ -126,8 +127,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="Almond Roll Croissant">
                             <input type="hidden" name="price" value="60">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                            <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
+</div>
+                          <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
                 </div>
@@ -154,8 +159,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="Chocolate Ganache Tart">
                             <input type="hidden" name="price" value="65">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                            <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
+</div>
+                           <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
                 </div>
@@ -177,7 +186,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="Fresh Strawberry Tart">
                             <input type="hidden" name="price" value="70">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
+</div>
                             <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
@@ -200,8 +213,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="French Lemon  Tart">
                             <input type="hidden" name="price" value="60">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                            <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
+                            
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
+</div>
+                           <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
                 </div>
@@ -228,8 +246,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="Chocolate Dream Crepe">
                             <input type="hidden" name="price" value="80">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                            <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
+</div>
+       <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
                 </div>
@@ -251,8 +273,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="ice cream Crepe">
                             <input type="hidden" name="price" value="90">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                            <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
+</div>
+                           <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
                 </div>
@@ -274,8 +300,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="Berry Jam Crepe">
                             <input type="hidden" name="price" value="65">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                            <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, -1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+    <button type="button" class="qty-btn" onclick="changeQuantity(this, 1)">+</button>
+</div>
+                           <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
                 </div>
@@ -301,18 +331,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <i class="fab fa-pinterest-p"></i>
             </a>
         </div>
-        </footer>
-    <script>function changeQuantity(amount) {
-    const input = document.getElementById('quantityInput');
+        </footer>-
+    <script>function changeQuantity(button, amount) {
+    const wrapper = button.parentElement;
+    const input = wrapper.querySelector('.quantity-input');
     let current = parseInt(input.value);
     const min = parseInt(input.min) || 1;
 
     if (!isNaN(current)) {
-        current += amount;
-        if (current < min) current = min;
-        input.value = current;
+      current += amount;
+      if (current < min) current = min;
+      input.value = current;
     }
-}
+  }
+
+
+
 </script>
 </body>
 </html>
