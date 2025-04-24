@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 body {
-  background:rgba(53, 1, 39, 0.3);
+  background:rgba(250, 120, 215, 0.57);
   font-family: 'Lato', sans-serif;
 }
 
