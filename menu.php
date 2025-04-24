@@ -99,7 +99,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="menu.php" class="add-to-cart-form">
                            <input type="hidden" name="name" value="Classic Butter Croissant">
                             <input type="hidden" name="price" value="70">
-                            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                            <div class="quantity-wrapper">
+    <button type="button" class="qty-btn" onclick="changeQuantity(-1)">−</button>
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input" id="quantityInput">
+    <button type="button" class="qty-btn" onclick="changeQuantity(1)">+</button>
+</div>
                             <button type="submit" name="add_to_cart" class="add-to-cart">Add to cart</button>
                         </form>
                     </div>
@@ -298,6 +302,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </a>
         </div>
         </footer>
-    
+    <script>function changeQuantity(amount) {
+    const input = document.getElementById('quantityInput');
+    let current = parseInt(input.value);
+    const min = parseInt(input.min) || 1;
+
+    if (!isNaN(current)) {
+        current += amount;
+        if (current < min) current = min;
+        input.value = current;
+    }
+}
+</script>
 </body>
 </html>
